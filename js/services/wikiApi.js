@@ -18,7 +18,7 @@ myApp.factory('wikiApi', ['$http', function ($http) {
 
         getRevs: function (query, cb) {
 
-            var wikiQueryParameters = JSON.parse(JSON.stringify(wikiQueryDefaultParameters));  // poor man's copy
+            var wikiQueryParameters = angular.copy(wikiQueryDefaultParameters);
             wikiQueryParameters.titles = query;
 
             $http.jsonp(wikiAPIPath, {params: wikiQueryParameters})
