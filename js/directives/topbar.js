@@ -4,6 +4,13 @@ myApp.directive('topbar', function() {
         restrict: 'E',
         scope: {
             query: '=query'
+        },
+        link:function($scope,element){
+
+           $scope.clickHandler = function(){
+               $scope.query = element.find('input').val();
+           }
+
         }
     };
 });
