@@ -11,3 +11,18 @@ topbar {
     background: #eee;
     padding: 7px;
 }
+
+rev-chart {
+    display:block;
+    width:100%;
+    height:300px;
+}
+
+rev-chart div {
+    display:block;
+    width:1px;
+    height:300px;
+    position:absolute;
+    background-color: blue;
+    bottom:0;
+}
