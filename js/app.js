@@ -7,7 +7,10 @@ myApp.controller('MainController',
 
     $scope.$watch('current',function(newQuery,oldQuery){
         if(newQuery)
-            wikiApi.sayYo();
+            wikiApi.getRevs(newQuery,function(data){
+                console.log(data);
+                $scope.apiResponse = data;
+            });
     });
 
 
