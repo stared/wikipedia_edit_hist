@@ -2,7 +2,7 @@
 
 Explore edit history of Wikipedia pages. Compare a few pages and plot their edit activity in a given time window. 
 
-[Interactive version.]((http://stared.github.io/wikipedia_edit_hist/))
+[Interactive version.](http://stared.github.io/wikipedia_edit_hist/)
 
 Using Angular.js and D3.js.
 
