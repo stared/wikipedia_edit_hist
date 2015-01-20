@@ -10,10 +10,9 @@ myApp.controller('MainController',
         var color = d3.scale.category10();
 
     $scope.$watch('current',function(newQuery,oldQuery){
-        if(newQuery)
-            $scope.$watch('current',function(newQuery,oldQuery){
                 if(newQuery)
-                    wikiApi.getRevs(newQuery,null,null,function(data){
+                    wikiApi.getRevs(newQuery,new Date(new Date()-1000*3600*24*100),null,function(data){
+
 
                         var revs = data.reverse();
                         $scope.queries.push({
@@ -29,7 +28,6 @@ myApp.controller('MainController',
 
 
                     });
-            });
     });
 
 
