@@ -14,7 +14,7 @@
 <body ng-controller="MainController">
 
     <topbar query="current"></topbar>
-
+    <input ng-model="days" type="number" id="days"/>
     <query-list ng-repeat="q in queries">
         <span ng-style="{color:q.color}">{{q.query}} ({{q.data.length}})</span>
     </query-list>

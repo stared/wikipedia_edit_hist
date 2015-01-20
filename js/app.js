@@ -6,15 +6,18 @@ myApp.controller('MainController',
         $scope.current = null;
 
         $scope.queries = [];
+        $scope.days = 80;
 
         var color = d3.scale.category10();
 
     $scope.$watch('current',function(newQuery,oldQuery){
+        console.log($scope.days,new Date(new Date()-1000*3600*24*$scope.days),1000*3600*24*$scope.days);
                 if(newQuery)
-                    wikiApi.getRevs(newQuery,new Date(new Date()-1000*3600*24*100),null,function(data){
+                    wikiApi.getRevs(newQuery,new Date(new Date()-1000*3600*24*$scope.days),null,function(data){
 
-
+                        console.log(data);
                         var revs = data.reverse();
+
                         $scope.queries.push({
                             query:newQuery,
                             data:revs.map(function(rev){

@@ -61,7 +61,7 @@ myApp.factory('wikiApi', ['$http', function ($http) {
                 wikiQueryParameters.rvend = [dateFrom.getFullYear(), dateFrom.getMonth() + 1, dateFrom.getDate(), "000000"].join("");
             }
             if (!!dateTo && dateFrom.getFullYear) {
-                wikiQueryParameters.rvend = [dateTo.getFullYear(), dateTo.getMonth() + 1, dateTo.getDate(), "000000"].join("");
+                wikiQueryParameters.rvstart = [dateTo.getFullYear(), dateTo.getMonth() + 1, dateTo.getDate(), "000000"].join("");
             }
 
             console.log("Starting: " + wikiQueryParameters.titles + "...");
