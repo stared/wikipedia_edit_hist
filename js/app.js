@@ -4,26 +4,25 @@ myApp.controller('MainController',
     ['$scope','wikiApi', function($scope,wikiApi) {
 
         $scope.current = null;
-        $scope.queries = [];
-
-        var color = d3.scale.category10();
 
     $scope.$watch('current',function(newQuery,oldQuery){
         if(newQuery)
             wikiApi.getRevs(newQuery,function(data){
-
+                console.log(data);
                 for(var page in data.query.pages){
 
-                    var revs = data.query.pages[page].revisions.reverse();
-                    $scope.queries.push({
-                        query:newQuery,
-                        data:revs.map(function(rev){
-                            return {
-                                size:rev.size,
-                                date:new Date(rev.timestamp)
-                            }
-                        }),
-                        color:color($scope.queries.length)
+                    var revs = data.query.pages[page].revisions;
+
+                    var min = Number(new Date(revs[0].timestamp));
+                    var max = Number(new Date(revs[revs.length-1].timestamp));
+
+                    $scope.revisions = revs.map(function(rev){
+                        var num = Number(new Date(rev.timestamp)- min)/(max-min);
+
+                        return {
+                            size:rev.size,
+                            float:num
+                        }
                     });
                     break;
                 }
