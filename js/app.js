@@ -7,7 +7,7 @@ myApp.controller('MainController',
 
     $scope.$watch('current',function(newQuery,oldQuery){
         if(newQuery)
-            wikiApi.getRevs(newQuery,function(data){
+            wikiApi.getRevs(newQuery, null, null, function(data){
                 console.log(data);
                 for(var page in data.query.pages){
 
