@@ -11,17 +11,12 @@ myApp.controller('MainController',
                 console.log(data);
                 for(var page in data.query.pages){
 
-                    var revs = data.query.pages[page].revisions;
-
-                    var min = Number(new Date(revs[0].timestamp));
-                    var max = Number(new Date(revs[revs.length-1].timestamp));
+                    var revs = data.query.pages[page].revisions.reverse();
 
                     $scope.revisions = revs.map(function(rev){
-                        var num = Number(new Date(rev.timestamp)- min)/(max-min);
-
                         return {
                             size:rev.size,
-                            float:num
+                            date:new Date(rev.timestamp)
                         }
                     });
                     break;
