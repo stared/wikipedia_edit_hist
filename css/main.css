@@ -45,3 +45,12 @@ path {
     stroke-width: 1;
     shape-rendering: crispEdges;
 }
+
+query-list {
+
+}
+
+query-list span {
+    display:inline-block;
+    border:1px solid black;
+}

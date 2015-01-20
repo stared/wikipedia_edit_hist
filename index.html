@@ -15,6 +15,10 @@
 
     <topbar query="current"></topbar>
 
+    <query-list ng-repeat="q in queries">
+        <span ng-style="{color:q.color}">{{q.query}} ({{q.data.length}})</span>
+    </query-list>
+
     <rev-chart></rev-chart>
 
 

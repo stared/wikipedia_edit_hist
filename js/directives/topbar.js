@@ -9,6 +9,7 @@ myApp.directive('topbar', function() {
 
            $scope.clickHandler = function(){
                $scope.query = element.find('input').val();
+               element.find('input').val('');
            }
 
         }
