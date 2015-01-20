@@ -57,11 +57,11 @@ myApp.factory('wikiApi', ['$http', function ($http) {
 
             // we assume rvdir=older (default)
             // otherwise rvstart<->rvend
-            if (!!dateFrom) {
-                wikiQueryParameters.rvend = "".join([dateFrom.getFullYear(), dateFrom.getMonth() + 1, dateFrom.getDate(), "000000"]);
+            if (!!dateFrom && dateFrom.getFullYear) {
+                wikiQueryParameters.rvend = [dateFrom.getFullYear(), dateFrom.getMonth() + 1, dateFrom.getDate(), "000000"].join("");
             }
-            if (!!dateTo) {
-                wikiQueryParameters.rvend = "".join([dateTo.getFullYear(), dateTo.getMonth() + 1, dateTo.getDate(), "000000"]);
+            if (!!dateTo && dateFrom.getFullYear) {
+                wikiQueryParameters.rvend = [dateTo.getFullYear(), dateTo.getMonth() + 1, dateTo.getDate(), "000000"].join("");
             }
 
             console.log("Starting: " + wikiQueryParameters.titles + "...");
